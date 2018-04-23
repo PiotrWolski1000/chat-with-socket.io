@@ -1,0 +1,25 @@
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    text-transform: uppercase;
+    color:grey;
+    text-align: center;
+}
+
+a {
+    color: white;
+    text-align: center;
+    display: block;
+    background-color: lightskyblue;
+    padding: 20px;
+    margin: auto;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+a:hover {
+    color: grey;
+    background-color: white;
+
+}

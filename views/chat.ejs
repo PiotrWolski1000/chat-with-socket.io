@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8" />
+    <head>
+        <script src="/socket.io/socket.io.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="chat.css">
+
+        <script>
+        window.addEventListener('load', function() {
+            
+			
+            var socket = io();
+            
+            socket.on('time message', function(data) {
+
+                var t = document.getElementById('time');
+                t.innerHTML = data;
+            });
+
+            socket.on('chat message', function(data) {
+                var msg = document.getElementById('messages');
+                msg.innerHTML += "<li>"+ data + "</li>";
+            });
+
+
+            var txtmessage = document.getElementById('txtmessage');
+
+            txtmessage.addEventListener('change', function() {
+                 socket.emit('chat message', "<%= user %> " +": " + this.value);
+                 this.value='';
+                
+            });
+        });
+        </script>
+    </head>
+    <body>
+	Witaj, jesteś zalogowany jako <%= user %>. <a href='/logout'>Wyloguj się</a> <br><br>
+    <div id="myChat">
+        <input type='text' id='txtmessage' placeholder="Type your message here"/>
+        <ul id='messages'></ul>
+    </div>
+    </body>
+</html>
