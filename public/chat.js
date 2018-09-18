@@ -1,5 +1,5 @@
 //make connection
-var socket = io.connect("http://localhost:3002")
+var socket = io.connect("http://localhost:3000")
 
 
 let message = document.getElementById('message')
